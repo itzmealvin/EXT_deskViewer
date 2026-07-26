@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="light" name="color-scheme">
+    <meta content="#edf1f5" name="theme-color">
+    <title>Desk Viewer Extension — Controller Panel</title>
+  </head>
+  <body>
+    <main class="controller-shell" id="app">
+      <header class="app-header">
+        <img
+          alt=""
+          aria-hidden="true"
+          class="brand-mark"
+          decoding="async"
+          fetchpriority="high"
+          height="1254"
+          src="/icon.png"
+          width="1254"
+        >
+        <div class="brand-copy">
+          <h1>Desk Viewer</h1>
+        </div>
+        <span class="status-badge status-idle" id="statusBadge" role="status">
+          <span aria-hidden="true" class="status-dot"></span>
+          <span id="statusText">Idle</span>
+        </span>
+      </header>
+
+      <section
+        aria-atomic="true"
+        aria-live="polite"
+        class="alert-region"
+        id="alertRegion"
+      ></section>
+
+      <section aria-labelledby="actionsHeading" class="action-panel">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Signal Controls</p>
+            <h2 id="actionsHeading">Route Your Presentation</h2>
+            <p class="section-summary">
+              Put the viewer on the audience display, then choose what to show.
+            </p>
+          </div>
+        </div>
+
+        <div class="primary-actions">
+          <button
+            class="btn btn-primary route-button"
+            id="openViewerButton"
+            type="button"
+          >
+            <span aria-hidden="true" class="action-step">1</span>
+            <span class="action-copy">
+              <strong>Open Viewer</strong>
+              <small>Send it to the audience display</small>
+            </span>
+            <span aria-hidden="true" class="route-arrow">↗</span>
+          </button>
+          <button
+            class="btn btn-signal route-button"
+            id="startSharingButton"
+            type="button"
+          >
+            <span aria-hidden="true" class="action-step">2</span>
+            <span class="action-copy">
+              <strong id="startSharingLabel">Start Sharing</strong>
+              <small id="startSharingHint"
+                >Choose a display, window, or tab</small
+              >
+            </span>
+            <span aria-hidden="true" class="button-indicator"></span>
+          </button>
+        </div>
+
+        <div class="secondary-actions">
+          <button
+            class="btn btn-control"
+            disabled
+            id="changeSourceButton"
+            type="button"
+          >
+            Change Source
+          </button>
+          <button
+            class="btn btn-control btn-stop"
+            disabled
+            id="stopSharingButton"
+            type="button"
+          >
+            Stop Sharing
+          </button>
+          <button
+            class="btn btn-control"
+            disabled
+            id="focusViewerButton"
+            type="button"
+          >
+            Focus Viewer
+          </button>
+        </div>
+      </section>
+
+      <section aria-labelledby="sourceHeading" class="source-panel">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Incoming Source</p>
+            <h2 id="sourceHeading">Capture Details</h2>
+          </div>
+          <span
+            aria-atomic="true"
+            aria-live="polite"
+            class="source-state"
+            id="sourceState"
+            role="status"
+          >
+            No signal
+          </span>
+        </div>
+        <dl class="source-grid">
+          <div>
+            <dt>Source</dt>
+            <dd id="sourceLabel">—</dd>
+          </div>
+          <div>
+            <dt>Type</dt>
+            <dd id="sourceType">—</dd>
+          </div>
+          <div>
+            <dt>Resolution</dt>
+            <dd id="sourceResolution">—</dd>
+          </div>
+          <div>
+            <dt>Frame rate</dt>
+            <dd id="sourceFrameRate">—</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="instructionsHeading" class="instructions">
+        <h2 class="visually-hidden" id="instructionsHeading">How to Use</h2>
+        <ol>
+          <li>Open the viewer.</li>
+          <li>Move it to the projector or second display.</li>
+          <li>Start sharing.</li>
+          <li>Select the source display, window, or tab.</li>
+        </ol>
+        <p class="mirror-warning">
+          <span aria-hidden="true">!</span>
+          Keep the viewer off the display you capture to avoid a recursive
+          mirror.
+        </p>
+      </section>
+    </main>
+
+    <script src="./main.ts" type="module"></script>
+  </body>
+</html>
