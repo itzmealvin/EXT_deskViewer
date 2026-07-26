@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="dark" name="color-scheme">
+    <meta content="#030508" name="theme-color">
+    <title>Desk Viewer Extension — Viewer</title>
+  </head>
+  <body>
+    <main class="viewer-shell" id="root">
+      <video
+        aria-label="Shared presentation"
+        autoplay
+        class="viewer-video"
+        id="viewerVideo"
+        muted
+        playsinline
+      ></video>
+
+      <section aria-live="polite" class="waiting-state" id="waitingState">
+        <img
+          alt=""
+          aria-hidden="true"
+          class="waiting-icon"
+          decoding="async"
+          fetchpriority="high"
+          height="1254"
+          src="/icon.png"
+          width="1254"
+        >
+        <p class="waiting-label">Desk Viewer Extension</p>
+        <h1>Waiting for Presentation…</h1>
+        <p>Move this window to the projector or second display.</p>
+        <button
+          class="fullscreen-button"
+          id="waitingFullscreenButton"
+          type="button"
+        >
+          Enter Fullscreen
+        </button>
+      </section>
+
+      <aside
+        aria-label="Presentation controls"
+        class="viewer-toolbar"
+        id="viewerToolbar"
+      >
+        <span
+          aria-atomic="true"
+          aria-live="polite"
+          id="viewerStatus"
+          role="status"
+        >
+          <span aria-hidden="true" class="live-dot"></span>
+          Waiting
+        </span>
+        <button id="fullscreenButton" type="button">Enter Fullscreen</button>
+      </aside>
+
+      <div
+        aria-live="assertive"
+        class="viewer-alert"
+        hidden
+        id="viewerAlert"
+        role="alert"
+      ></div>
+    </main>
+
+    <script src="./main.ts" type="module"></script>
+  </body>
+</html>
